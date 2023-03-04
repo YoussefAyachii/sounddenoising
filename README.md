@@ -24,7 +24,7 @@ The Fourier Transform is a continuous mathematical function that transforms a co
 
 The fourier transform function is of the form:
 
-<img src= "./formulas/fourier_transform_formula.png" width="200" class="center">
+<img src= "./formulas/fourier_transform_formula.png" width="600" class="center">
 
 Where: 
     - the variable x represents time.
@@ -46,39 +46,39 @@ FT method is known to be an efficient method to denoise signals. To do so, we ha
 
 <audio id="phonebip" src="./audio/fourier_transform/phonebip.wav"></audio><button onclick="playAudio('phonebip')" type="button">play</button>
 
-<img src="./figures/fourier_transform/phonebip_timedomain.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_timedomain.png" width="600" class="center">
 
 A zoom on the signal between t=10000 and t=10400 returns a sinusoidal wave.
 
-<img src="./figures/fourier_transform/phonebip_timedomain_zoom.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_timedomain_zoom.png" width="600" class="center">
 
 Using FFT, we can transform our original (clean) signal into frequency domain.
 
-<img src="./figures/fourier_transform/phonebip_frequencydomain.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_frequencydomain.png" width="600" class="center">
 
 The first step consists in adding a gaussian noise to the original signal (`audio/phonebip_gaussian_noise.wav`).
 
 <audio id="phonebip_gaussian_noise" src="./audio/fourier_transform/phonebip_gaussian_noise.wav"></audio><button onclick="playAudio('phonebip_gaussian_noise')" type="button">play</button>
 
-<img src="./figures/fourier_transform/phonebip_gaussian_noise.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_gaussian_noise.png" width="600" class="center">
 
 Then, transform our noised continuous signal from time-domain into frequency-domain. This is done by computing the DFT of our noised signal using the FFT algorithm.
 
-<img src="./figures/fourier_transform/phonebip_noised_frequencydomain.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_noised_frequencydomain.png" width="600" class="center">
 
 Third, compute the power spectral density (PSD) which shows the power of each frequency of our noised signal.
 
-<img src="./figures/fourier_transform/phonebip_noised_PSD.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_noised_PSD.png" width="600" class="center">
 
 Fifth, find all frequencies with large power. In other words, keep only frequencies that are higher than a certain threshold. Here, threshold is set to 100 after looking to the frequency domain graph. This gives the clean signal in the frequency domain.
 
-<img src="./figures/fourier_transform/phonebip_denoised_frequencydomain.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_denoised_frequencydomain.png" width="600" class="center">
 
 Lastly, transform the obtained clean signal from time-domain to the frequency-domain using the inverse FFT algorithm.
 
 <audio id="phonebip_gaussian_denoise" src="./audio/fourier_transform/phonebip_gaussian_denoise.wav"></audio><button onclick="playAudio('phonebip_gaussian_denoise')" type="button">play</button>
 
-<img src="./figures/fourier_transform/phonebip_denoised_timedomain.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_denoised_timedomain.png" width="600" class="center">
 
 Comparing the difference between the original clean signal and the denoised signal after adding gaussian noise returns an mse of about *mse=0.0005499*.
 
@@ -88,17 +88,17 @@ Here, the idea is to use decompose and recompose the original clean signal witho
 
 <audio id="phonebip" src="./audio/fourier_transform/phonebip.wav"></audio><button onclick="playAudio('phonebip')" type="button">play</button>
 
-<img src="./figures/fourier_transform/phonebip_timedomain.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_timedomain.png" width="600" class="center">
 
 Using FFT, we can transform our original (clean) signal into frequency domain.
 
-<img src="./figures/fourier_transform/phonebip_frequencydomain.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_frequencydomain.png" width="600" class="center">
 
 The back way to the time domain after keeping only the frequencies with the highest magnitude is done using the inverse FFT algorithm.
 
 <audio id="phonebip_decomp" src="./audio/fourier_transform/phonebip_decomp.wav"></audio><button onclick="playAudio('phonebip_decomp')" type="button">play</button>
 
-<img src="./figures/fourier_transform/phonebip_decomp_summary.png" width="200" class="center">
+<img src="./figures/fourier_transform/phonebip_decomp_summary.png" width="600" class="center">
 
 ## Wavelet Transform
 
@@ -122,17 +122,17 @@ The audio signal is first loaded from a file and plotted to visualize the wavefo
 
 <audio id="phonebip" src="./audio/wavelet_transform/phonebip.wav"></audio><button onclick="playAudio('phonebip')" type="button">play</button>
 
-<img src="./figures/wavelet_transform/phonebip_timedomain.png" width="200" class="center">
+<img src="./figures/wavelet_transform/phonebip_timedomain.png" width="600" class="center">
 
 Then a zoomed-in plot of a section of the waveform is created to show more detail.
 
-<img src="./figures/wavelet_transform/phonebip_timedomain_zoom.png" width="200" class="center">
+<img src="./figures/wavelet_transform/phonebip_timedomain_zoom.png" width="600" class="center">
 
 Next, the signal is corrupted by adding Gaussian noise to it.
 
 <audio id="phonebip_gaussian_noise" src="./audio/wavelet_transform/phonebip_gaussian_noise.wav"></audio><button onclick="playAudio('_gaussian_noise')" type="button">play</button>
 
-<img src="./figures/wavelet_transform/phonebip_gaussian_noise.png" width="200" class="center">
+<img src="./figures/wavelet_transform/phonebip_gaussian_noise.png" width="600" class="center">
 
 The best threshold for denoising is determined using a function that takes the noisy signal, the original signal, and a range of threshold values as inputs.
 
@@ -142,7 +142,7 @@ Finally, the denoised signal is saved to a `.wav` file and plotted for visualiza
 
 <audio id="phonebip_gaussian_denoise" src="./audio/wavelet_transform/phonebip_gaussian_denoise.wav"></audio><button onclick="playAudio('phonebip_gaussian_denoise')" type="button">play</button>
 
-<img src="./figures/wavelet_transform/phonebip_gaussian_denoise.png" width="200" class="center">
+<img src="./figures/wavelet_transform/phonebip_gaussian_denoise.png" width="600" class="center">
 
 ## Conclusion
 
@@ -160,4 +160,5 @@ Finally, the denoised signal is saved to a `.wav` file and plotted for visualiza
 
 # References
 [1]. https://en.wikipedia.org/wiki/Fourier_transform
+
 [2]. https://en.wikipedia.org/wiki/Wavelet
