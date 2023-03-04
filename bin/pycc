@@ -1,0 +1,3 @@
+#!/Users/bottimacintosh/Documents/M2_DS/SIGNALPROCESSING/project/signalvenv/bin/python3
+from numba.pycc import main
+main()
