@@ -140,23 +140,18 @@ The wavelet transform is then applied to denoise the signal using the best thres
 
 Finally, the denoised signal is saved to a `.wav` file and plotted for visualization.
 
-<audio id="phonebip_gaussian_denoise" src="./audio/wavelet_transform/phonebip_gaussian_denoise.wav"></audio><button onclick="playAudio('phonebip_gaussian_denoise')" type="button">play</button>
+<audio controls>
+  <source src="./audio/wavelet_transform/phonebip_gaussian_denoise.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
 <img src="./figures/wavelet_transform/phonebip_gaussian_denoise.png" width="600" class="center">
 
 ## Conclusion
 
+When playing the denoised phone bip file produced by both the fourier transform method (`audio/fourier_transform/phonebip_gaussian_denoise.wav`) and the wavelet transform method (`audio/wavelet_transform/phonebip_gaussian_denoise.wav`), we can notice that the fourier transform performs much better than the wavelet transform method. Moreover, doing the same analysis on a more complex sound such as music (`audio/bassloop.wav`) returns the same result.
 
-
-
-
-
-
-
-
-
-
-
+The bad performances of he wavelet transform method may be due to a bad choice of the hyper parameters such as the wavelet type, i.g. "db2" or "db10", chosen when applying the wavelet decompositionof the signal. Better results should be returned if we work more about chosing better hyperparameters.
 
 # References
 [1]. https://en.wikipedia.org/wiki/Fourier_transform
