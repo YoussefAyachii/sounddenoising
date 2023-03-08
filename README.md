@@ -68,7 +68,7 @@ Third, compute the power spectral density (PSD) which shows the power of each fr
 
 Fifth, find all frequencies with large power. In other words, keep only frequencies that are higher than a certain threshold. Here, threshold is set to 100 after looking to the frequency domain graph. This gives the clean signal in the frequency domain.
 
-<img src="./figures/fourier_transform/phonebip_denoised_frequencydomain.png" width="600" class="center">
+<img src="./figures/fourier_transform/phonebip_noised_clean_PSD.png" width="600" class="center">
 
 Lastly, transform the obtained clean signal from time-domain to the frequency-domain using the inverse FFT algorithm.
 

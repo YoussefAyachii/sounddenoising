@@ -1,6 +1,5 @@
 """Wavelet transform method to denoise sound signals"""
 
-import pywt
 import numpy as np
 import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
@@ -10,7 +9,7 @@ import scipy as sp
 from functions import addgaussian_noise, dwt_wavelet_denoising, best_threshold
 
 # audio_name
-audio_name = "bassloop"
+audio_name = "phonebip"
 
 # load audio file in the player
 audio_path = "audio/"+audio_name+".wav"
