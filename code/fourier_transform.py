@@ -48,7 +48,7 @@ ft = sp.fft.fft(signal)
 
 # frequency and magnitude: by deriving the FT
 magnitude = np.absolute(ft)  # magnitude = absolute value of Fourier tronsform
-frequency = np.linspace(0, sampling_rate, len(magnitude)) # list from=0, to=len(magnitude), step=1
+frequency = np.linspace(0, sampling_rate, len(magnitude)) 
 
 # Magnitude Spectrum
 plt.figure(figsize=(18, 8))
@@ -66,14 +66,33 @@ f_hat = np.fft.fft(signal)
 # compute the power spectral density (power of each frequency)
 PSD = f_hat * np.conj(f_hat) / len(signal)
 
+# plot PSD
+plt.figure(figsize=(18, 8))
+plt.plot(f_hat, PSD)
+plt.xlabel('Frequency')
+plt.ylabel('Magnitude')
+plt.title("Power spectral density (PSD) of noised signal")
+plt.savefig("figures/fourier_transform/"
+            +audio_name+"_noised_PSD.png")
+
 # find all frequencies with large power
 # find best PSD threshold
-threshold = 50
+threshold = 100
 indices_freq_high_power = PSD > threshold
 
 # clean power spectral density: zero-out componenets with power < threshold
 PSDclean = PSD * indices_freq_high_power
 f_hat_clean = f_hat * indices_freq_high_power
+
+# plot clean PSD
+plt.figure(figsize=(18, 8))
+plt.plot(t, PSDclean)
+plt.xlabel('Frequency')
+plt.ylabel('Magnitude')
+plt.title("Clean power spectral density (PSD) of noised signal"
+          +"\n (threshold = {})".format(threshold))
+plt.savefig("figures/fourier_transform/"
+            +audio_name+"_noised_clean_PSD.png")
 
 # from f_hat (fourier domain/freq domain) to f (time domain)
 signal_clean = np.fft.ifft(f_hat_clean)
@@ -83,7 +102,7 @@ plt.figure(figsize=(18, 8))
 plt.plot(t, signal_clean)
 plt.xlabel('Time')
 plt.ylabel('Amplitude')
-plt.title("Denoised signal using FFT (time domain)")
+plt.title("Denoised signal using FFT (time domain) of noised signal")
 plt.savefig("figures/fourier_transform/"+audio_name+"_denoised_timedomain.png")
 
 
@@ -152,4 +171,5 @@ csignal = denoising_with_ft(gsignal, sampling_rate, psd_threshold=best_threshold
 evaluate_denoisation(audio_path,
                      sampling_rate=sampling_rate,
                      pse_thresholds=thresholds,
-                     output_path="figures/fourier_transform/"+audio_name+"_denoising_eval.png")
+                     output_path="figures/fourier_transform/"
+                     +audio_name+"_denoising_eval.png")
