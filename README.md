@@ -29,11 +29,11 @@ The fourier transform function is of the form:
 Where: 
     - the variable x represents time.
     - ξ is the frequency
-    - The function $$f_hat(x)$$ is the transform function of $$f(x)$$ at frequency  ξ.
+    - The function f_hat(x) is the transform function of f(x) at frequency ξ.
 
-f(x) represents the time domain of the signal. Given time (x), $$f(x)$$ returns the **Amplitude** of the signal at each time x.
+f(x) represents the time domain of the signal. Given time (x), f(x) returns the **Amplitude** of the signal at each time x.
 
-Computing $$f_hat(ξ)$$ for all values of frequencies ξ produces the frequency-domain function. Given, the frequency ξ, $$f_hat(ξ)$$ returns the **Magnitude** of the signal at each frequence.
+Computing f_hat(ξ) for all values of frequencies ξ produces the frequency-domain function. Given, the frequency ξ, f_hat(ξ) returns the **Magnitude** of the signal at each frequence.
 
 ### 1) Discrete Fourier Transform (DFT)
 The DFT is a discrete version of the Fourier Transform function that is used to transform a discrete signal from the time domain to the frequency domain. The DFT breaks down the signal into a finite number of discrete frequency components, making it easier to analyze and process.
@@ -132,7 +132,7 @@ Finally, the denoised signal is saved to a `.wav` file and plotted for visualiza
 
 When playing the denoised phone bip file produced by both the fourier transform method (`audio/fourier_transform/phonebip_gaussian_denoise.wav`) and the wavelet transform method (`audio/wavelet_transform/phonebip_gaussian_denoise.wav`), we can notice that the fourier transform performs much better than the wavelet transform method. Moreover, doing the same analysis on a more complex sound such as music (`audio/bassloop.wav`) returns the same result.
 
-The bad performances of he wavelet transform method may be due to a bad choice of the hyper parameters such as the wavelet type, i.g. "db2" or "db10", chosen when applying the wavelet decompositionof the signal. Better results should be returned if we work more about chosing better hyperparameters.
+The bad performances of the wavelet transform method may be due to a bad choice of the hyper parameters such as the wavelet type, i.g. hard or soft thresholding, chosen when applying the wavelet decomposition of the signal. Better results should be returned by chosing better hyperparameters.
 
 # References
 [1]. https://en.wikipedia.org/wiki/Fourier_transform
